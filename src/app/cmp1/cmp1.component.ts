@@ -11,5 +11,4 @@ export class Cmp1Component implements OnInit {
 
   ngOnInit(): void {
   }
-
 }

@@ -1,1 +1,28 @@
-<p>cmp1 works!</p>
+<!-- Wrapper -->
+<div id="wrapper">
+
+    <!-- Header -->
+      <header id="header" class="alt">
+        <h1>Hello There</h1>
+      </header>
+
+      
+    <nav id="nav">
+        <ul>
+            <!-- <li><a routerLink="/">Home</a></li> -->
+            <li><a routerLink="/main">Main</a></li>
+            <li><a routerLink="/about">About</a></li>
+        </ul>
+    </nav>
+  
+    <!-- Main -->
+      <div id="main">
+  
+        <!-- First Section -->
+          <section id="first" class="main special">
+            <ul class="features">
+              <router-outlet></router-outlet>
+            </ul>
+          </section>
+      </div>
+  </div>

@@ -1,0 +1,10 @@
+<div id="mainDiv">
+    <h3 *ngFor="let quiz of quizzes">{{quiz.question}}
+        <div class="row">
+            <ul *ngFor="let choice of quiz.choices" class='col-lg-6 col-md-6'>
+                <button id={{choice}} class ="btn btn-primary"
+            >{{choice}}</button><br>
+            </ul>
+        </div>
+    </h3>
+</div>

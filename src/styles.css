@@ -1,1 +1,35 @@
-/* You can add global styles to this file, and also import other style files */
+.btn-primary:hover {
+    background-color: #e2d1d1 !important;
+}
+
+.btn-primary, .btn-primary:hover {
+	border-radius: 10px !important;
+    border-color: #000000 !important;
+	border-width: 2px !important;
+	margin: 30px !important;
+	width: 350px !important;
+	height: 100px !important;
+	font-weight: bold !important;
+	white-space: normal !important;
+	word-wrap: break-word !important;
+}
+
+.btn-next, .btn-next:hover span{
+	border-radius: 10px !important;
+    border-color: #000000 !important;
+	border-width: 2px !important;
+	margin: 30px !important;
+	width: 200px !important;
+	height: 70px !important;
+	font-weight: bold !important;
+	white-space: normal !important;
+	word-wrap: break-word !important;
+
+}
+
+.btn-progBar {
+	width: 50px;
+	height: 20px;
+	border-radius: 5px;
+	border-width: 2px;
+}
