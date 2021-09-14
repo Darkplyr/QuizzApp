@@ -1,10 +1,17 @@
-<div id="mainDiv">
-    <h3 *ngFor="let quiz of quizzes">{{quiz.question}}
-        <div class="row">
-            <ul *ngFor="let choice of quiz.choices" class='col-lg-6 col-md-6'>
-                <button id={{choice}} class ="btn btn-primary"
-            >{{choice}}</button><br>
-            </ul>
-        </div>
-    </h3>
+<div id="mainDiv" class= "mainDiv">
+    <h4 class="scoreHeader">Score: {{currentScore}}</h4>
+    <h4 class="questionHeader">Question {{currentIndex+1}} of {{quizzes.length}}</h4><br>
+    <!-- <div id="progBar"></div> -->
+    <div id="questionDiv">
+        <h3> {{currentQuestion}}
+            <div class="row">
+                <ul *ngFor="let choice of choices" class='col-lg-6 col-md-6'>
+                    <button id={{choice}} class ="btn btn-primary" (click)="checkAnswer(choice)"
+                >{{choice}}</button><br>
+                </ul>
+            </div>
+        </h3>
+        <button id="nxtBtn" class="btn btn-primary" (click)="nextQuestion()" disabled >Next</button>
+    </div>
 </div>
+

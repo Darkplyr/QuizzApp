@@ -33,3 +33,12 @@
 	border-radius: 5px;
 	border-width: 2px;
 }
+
+section.special, h4.mainDiv {
+	padding: 2.7em !important;
+}
+
+h4.scoreHeader {
+	text-align: right;
+	margin-right: 0.5em;
+}
