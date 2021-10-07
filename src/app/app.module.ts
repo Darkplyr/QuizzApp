@@ -2,15 +2,16 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { RouterModule, Routes } from '@angular/router';
-import { Cmp2Component } from './cmp2/cmp2.component';
-import { Cmp3Component } from './cmp3/cmp3.component';
-import { Cmp1Component } from './cmp1/cmp1.component';
+import { AboutComponent } from './about/about.component';
+import { MainComponent } from './main/main.component';
 import { QuizComponent } from './quiz/quiz.component';
+import { ResultsComponent } from './results/results.component';
 import { HttpClientModule } from '@angular/common/http';
+import { SettingsComponent } from './settings/settings.component';
 
 const routes: Routes = [
-  { path: 'about', component: Cmp2Component },
-  { path: 'main', component: Cmp3Component },
+  { path: 'about', component: AboutComponent },
+  { path: 'main', component: MainComponent },
   { path: 'quiz', component: QuizComponent },
   { path: '', redirectTo: '/about', pathMatch: 'full' },
 ]
@@ -18,8 +19,10 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    Cmp1Component,
-    QuizComponent
+    MainComponent,
+    QuizComponent,
+    ResultsComponent,
+    SettingsComponent
   ],
   imports: [
     BrowserModule,

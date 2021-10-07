@@ -1,7 +1,6 @@
-<div id="mainDiv" class= "mainDiv">
+<div *ngIf = "!EndOfQuiz && this.quizService.quizzes.length > 0" id="mainDiv" class= "mainDiv">
     <h4 class="scoreHeader">Score: {{currentScore}}</h4>
-    <h4 class="questionHeader">Question {{currentIndex+1}} of {{quizzes.length}}</h4><br>
-    <!-- <div id="progBar"></div> -->
+    <h4 class="questionHeader">Question {{currentIndex+1}} of {{this.quizService.quizzes.length}}</h4><br>
     <div id="questionDiv">
         <h3> {{currentQuestion}}
             <div class="row">
@@ -11,7 +10,10 @@
                 </ul>
             </div>
         </h3>
-        <button id="nxtBtn" class="btn btn-primary" (click)="nextQuestion()" disabled >Next</button>
+        <button *ngIf="this.quizService.quizzes.length > this.currentIndex + 1" id="nxtBtn" class="btn btn-primary" (click)="nextQuestion()" disabled >Next</button>
+        <button *ngIf="this.quizService.quizzes.length == this.currentIndex + 1" id="nxtBtn" class="btn btn-primary" (click)="nextQuestion()" disabled >Finish</button>
     </div>
 </div>
-
+<div *ngIf="EndOfQuiz">
+    <app-results></app-results>
+</div>

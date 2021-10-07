@@ -10,8 +10,11 @@ import { QuizApiServiceService } from './quiz-api-service.service';
 export class AppComponent {
   title = 'QuizzApp2';
 
-  constructor(private quizService : QuizApiServiceService) {
-    quizService.getQuestions();
+  constructor(public quizService : QuizApiServiceService) {
+  }
+
+  ngOnInit() {
+    this.quizService.generateApiToken();
   }
 }
 
