@@ -9,11 +9,17 @@ import { QuizApiServiceService } from '../quiz-api-service.service';
 })
 export class MainComponent implements OnInit {
 
-  constructor(private router : Router) { 
+  constructor(private router : Router, private quizService : QuizApiServiceService) { 
   }
 
   ngOnInit(): void {
   }
+
+  Settings() : void {
+    this.router.navigateByUrl('/settings');
+  }
+
+  
 
   startGame() : void{
     this.router.navigateByUrl('/quiz');

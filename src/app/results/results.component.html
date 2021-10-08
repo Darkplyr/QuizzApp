@@ -1,1 +1,6 @@
-<p>results</p>
+<div>
+    <h4 class="scoreHeader">Your Score: {{currentScore}} / {{this.quizService.quizzes.length}}</h4>
+
+    <button class = "btn btn-primary" (click) = "restartGame()">Try Again</button><br>
+    <button class = "btn btn-primary" (click) = "mainMenu()">Back to Menu</button>
+</div>

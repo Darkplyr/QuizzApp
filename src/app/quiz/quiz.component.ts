@@ -1,7 +1,5 @@
 import { Component, OnInit, DoCheck,  } from '@angular/core';
 import { QuizApiServiceService } from '../quiz-api-service.service';
-import { Router } from '@angular/router';
-import { ResultsComponent } from '../results/results.component';
 
 @Component({
   selector: 'app-quiz',
@@ -17,7 +15,7 @@ export class QuizComponent implements OnInit, DoCheck {
   currentScore = 0;
   EndOfQuiz = false;
 
-  constructor(private router : Router, public quizService : QuizApiServiceService) {
+  constructor(public quizService : QuizApiServiceService, ) {
   }
 
   ngOnInit(): void {
@@ -25,18 +23,24 @@ export class QuizComponent implements OnInit, DoCheck {
   }
 
   ngDoCheck(): void {
-    if(this.quizService.quizzes.length > 0){
-      if (!this.EndOfQuiz) {
-        this.currentQuestion = this.quizService.quizzes[this.currentIndex].question;
+    if(this.quizService.quizzes.length > 0 && !this.EndOfQuiz)
+    {
         this.choices = this.quizService.quizzes[this.currentIndex].choices;
+        this.currentQuestion = this.quizService.quizzes[this.currentIndex].question;
         this.correctAnswer = this.quizService.quizzes[this.currentIndex].answer;
-      }
     }
+  }
+
+  startQuiz() : void {
+    this.EndOfQuiz = false;
+    this.currentIndex = this.quizService.currentIndex;
+    this.currentScore = this.quizService.currentScore;
+    this.quizService.getQuestions();
   }
 
   checkAnswer(choice : string) : void {
     var answerBtn = document.getElementById(choice);
-    if(choice === this.correctAnswer)
+    if(choice == this.correctAnswer)
     {
       answerBtn?.setAttribute("style", "background-color: #00FF00");
       this.currentScore++;
@@ -55,15 +59,17 @@ export class QuizComponent implements OnInit, DoCheck {
     nextButton?.removeAttribute("disabled");
   }
 
-  nextQuestion() : void{
+  nextQuestion() : void {
     this.EndOfQuiz = false;
     this.currentIndex++;
     var nextButton = document.getElementById("nxtBtn");
     nextButton?.setAttribute("disabled", "true")
-    if (((this.currentIndex) % this.quizService.quizzes.length) == 0) {
+    for (let i = 0; i < this.choices.length; i++) {
+      var choiceBtn = document.getElementById(this.choices[i]);
+      choiceBtn?.removeAttribute("disabled");
+      choiceBtn?.removeAttribute("style")
+    }
+    if (((this.currentIndex) % this.quizService.quizzes.length) == 0)
       this.EndOfQuiz = true;
-    }
-    else {
-    }
   }
 }

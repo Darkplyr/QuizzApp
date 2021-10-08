@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { QuizComponent } from '../quiz/quiz.component';
+import { QuizApiServiceService } from '../quiz-api-service.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-results',
@@ -7,10 +9,19 @@ import { QuizComponent } from '../quiz/quiz.component';
   styleUrls: ['./results.component.css']
 })
 export class ResultsComponent implements OnInit {
-
-  constructor() {}
+  
+  @Input() currentScore : number = 0 ;
+  constructor(public quizService : QuizApiServiceService, private router : Router, private quizC : QuizComponent) {}
 
   ngOnInit(): void {
+  }
+
+  restartGame() : void {
+    this.quizC.startQuiz();
+  }
+
+  mainMenu() : void {
+    this.router.navigateByUrl('/main');
   }
 
 }

@@ -4,9 +4,9 @@
     <div id="questionDiv">
         <h3> {{currentQuestion}}
             <div class="row">
-                <ul *ngFor="let choice of choices" class='col-lg-6 col-md-6'>
-                    <button id={{choice}} class ="btn btn-primary" (click)="checkAnswer(choice)"
-                >{{choice}}</button><br>
+                <ul *ngFor="let c of choices" class='col-lg-6 col-md-6'>
+                    <button id={{c}} class="btn btn-primary" (click)="checkAnswer(c)"
+                >{{c}}</button><br>
                 </ul>
             </div>
         </h3>
@@ -15,5 +15,6 @@
     </div>
 </div>
 <div *ngIf="EndOfQuiz">
-    <app-results></app-results>
-</div>
+    <app-results
+    [currentScore]='currentScore'></app-results>
+</div> 

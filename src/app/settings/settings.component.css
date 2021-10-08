@@ -1,0 +1,37 @@
+button[type=submit], input[type=reset], .btn {
+	background-color: #28a745;
+	color: white;
+	padding: 14px 20px;
+	margin: 8px 0;
+	border: none;
+	cursor: pointer;
+	width: 100%;
+}
+
+form {
+	background-color: #fff;
+	width: 100%;
+	padding: 25px;
+	text-align: left;
+}
+
+input[type=number]{
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	-ms-appearance: none;
+	appearance: none;
+	border-radius: 8px;
+	border: solid 1px;
+	color: inherit;
+	display: block;
+	outline: 0;
+	padding: 0 1em;
+	text-decoration: none;
+	width: 100%;
+	font-family: "Source Sans Pro", Helvetica, sans-serif;
+	font-size: 17pt;
+	font-weight: 300;
+	line-height: 1.65;
+	background-color: rgba(222, 222, 222, 0.25);
+	border-color: #dddddd;
+}

@@ -9,11 +9,14 @@ export class QuizApiServiceService {
   private apiUrl : string = "";
   public apiToken : string = "";
 
+  categories : any = [];
   quizzes : any = [];
-  correctAnswer : string = ""
-  question : string = 'question';
-  answer : string = 'answer';
-  choices : any = [];
+  Category = 0;
+  Difficulty = "any";
+  Type = "any";
+  Amount = "10";
+  currentIndex = 0;
+  currentScore = 0;
 
   constructor(private http: HttpClient) { 
   }
@@ -35,7 +38,26 @@ export class QuizApiServiceService {
         this.quizzes.push(q);
       }
     })
-    console.log(this.apiUrl);
+  }
+
+  getCategories() : void {
+    this.categories=[];
+    this.http.get("https://opentdb.com/api_category.php")
+    .subscribe((data : any) => {
+      let c = {
+        category_name : "Any Category",
+        category_id : 0,
+      }
+      this.categories.push(c);
+      for (let i = 0; i < data.trivia_categories.length; i++) {
+        let c = {
+          category_name : data.trivia_categories[i].name,
+          category_id : data.trivia_categories[i].id,
+        }
+        this.categories.push(c);
+      }
+      console.log(this.categories);
+    })
   }
 
   decodeArray(array : any) : any {
@@ -46,24 +68,30 @@ export class QuizApiServiceService {
   }
 
   generateApiUrl() : void {
-    if (this.apiToken == "") {
-      this.generateApiToken();
+    this.generateApiToken();
+    if(this.Difficulty === "any")
+    {
+      this.Difficulty = "0";
     }
-    this.apiUrl = "https://opentdb.com/api.php?amount=2&encode=url3986&token=" + this.apiToken;
+    if(this.Type === "any")
+    {
+      this.Type = "0";
+    }
+    this.apiUrl = "https://opentdb.com/api.php?amount=" + this.Amount + "&encode=url3986&token=" + this.apiToken + "&category=" + this.Category + "&difficulty=" + this.Difficulty + "&type=" + this.Type;
+    console.log(this.apiUrl);
   }
 
   generateApiToken() : void {
-    this.http.get("https://opentdb.com/api_token.php?command=request")
-    .subscribe((data : any) => {
-      if (data.response_code == 0)
-      {
-        this.apiToken = data.token;
-      }
-      console.log(this.apiToken);
-      })
-      
+    if (this.apiToken == "") 
+    {
+      this.http.get("https://opentdb.com/api_token.php?command=request")
+      .subscribe((data : any) => {
+        if (data.response_code == 0) 
+          this.apiToken = data.token;
+        console.log(this.apiToken);
+        })
+    }
   }
-
 }
 
 

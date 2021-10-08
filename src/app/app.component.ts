@@ -11,10 +11,12 @@ export class AppComponent {
   title = 'QuizzApp2';
 
   constructor(public quizService : QuizApiServiceService) {
+    
   }
 
   ngOnInit() {
     this.quizService.generateApiToken();
+    this.quizService.getCategories();
   }
 }
 
