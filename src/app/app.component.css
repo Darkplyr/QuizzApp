@@ -21,7 +21,11 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(255,255,255,0.5);
+    background-color: #935d8c;
+		background-image: url("/assets/css/images/overlay.png"), -moz-linear-gradient(45deg, #e37682 15%, #5f4d93 85%);
+		background-image: url("/assets/css/images/overlay.png"), -webkit-linear-gradient(45deg, #e37682 15%, #5f4d93 85%);
+		background-image: url("/assets/css/images/overlay.png"), -ms-linear-gradient(45deg, #e37682 15%, #5f4d93 85%);
+		background-image: url("/assets/css/images/overlay.png"), linear-gradient(45deg, #e37682 15%, #5f4d93 85%);
   }
   
   /* :not(:required) hides these rules from IE9 and below */
@@ -42,7 +46,7 @@
     height: 50px;
     margin-top: -0.5em;
   
-    border: 5px solid rgba(33, 150, 243, 1.0);
+    border: 5px solid rgb(255, 255, 255);
     border-radius: 100%;
     border-bottom-color: transparent;
     -webkit-animation: spinner 1s linear 0s infinite;
