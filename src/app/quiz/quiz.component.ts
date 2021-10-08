@@ -21,6 +21,7 @@ export class QuizComponent implements OnInit, DoCheck {
   }
 
   ngOnInit(): void {
+    this.quizService.getQuestions();
   }
 
   ngDoCheck(): void {
