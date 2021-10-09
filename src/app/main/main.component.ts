@@ -13,15 +13,14 @@ export class MainComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
   }
 
   Settings() : void {
     this.router.navigateByUrl('/settings');
   }
 
-  
-
-  startGame() : void{
+  startGame() : void {
     this.router.navigateByUrl('/quiz');
   }
 }

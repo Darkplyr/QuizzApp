@@ -26,13 +26,11 @@ export class SettingsComponent implements OnInit {
   }
 
   Save(form : NgForm) : void {
-      // this.quizService.Category=this.Category;
-      // this.quizService.Difficulty = this.Difficulty;
-      // this.quizService.Type = this.Type;
-      // this.quizService.Amount = (<HTMLInputElement>document.getElementById("trivia_amount")).value;
-      // this.router.navigateByUrl("/main");
-      console.log(form.value);
-
+      this.quizService.Category=form.value.Category;
+      this.quizService.Difficulty = form.value.Difficulty;
+      this.quizService.Type = form.value.Type;
+      this.quizService.Amount = form.value.Amount;
+      this.router.navigateByUrl("/main");
   }
 
   updateSelection() : void {
@@ -40,5 +38,4 @@ export class SettingsComponent implements OnInit {
     console.log(this.Difficulty);
     console.log(this.Type);
   }
-
 }

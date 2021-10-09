@@ -9,12 +9,14 @@ import { ResultsComponent } from './results/results.component';
 import { HttpClientModule } from '@angular/common/http';
 import { SettingsComponent } from './settings/settings.component';
 import { FormsModule } from '@angular/forms';
+import { TutorialComponent } from './tutorial/tutorial.component';
 
 const routes: Routes = [
   { path: 'about', component: AboutComponent },
   { path: 'main', component: MainComponent },
   { path: 'quiz', component: QuizComponent },
   { path: 'settings', component: SettingsComponent },
+  { path: 'tutorial', component: TutorialComponent },
   { path: '', redirectTo: '/about', pathMatch: 'full' },
 ]
 
@@ -24,7 +26,8 @@ const routes: Routes = [
     MainComponent,
     QuizComponent,
     ResultsComponent,
-    SettingsComponent
+    SettingsComponent,
+    TutorialComponent
   ],
   imports: [
     BrowserModule,
