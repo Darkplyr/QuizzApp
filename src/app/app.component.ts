@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { QuizApiServiceService } from './quiz-api-service.service';
+import { Title } from '@angular/platform-browser';
 
 
 @Component({
@@ -8,15 +9,14 @@ import { QuizApiServiceService } from './quiz-api-service.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'QuizzApp2';
 
-  constructor(public quizService : QuizApiServiceService) {
-    
+  constructor(public quizService : QuizApiServiceService, private title : Title) {
   }
 
   ngOnInit() {
     this.quizService.generateApiToken();
     this.quizService.getCategories();
+    this.title.setTitle("Quiz App");
   }
 }
 
