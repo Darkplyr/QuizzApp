@@ -56,7 +56,6 @@ export class QuizApiServiceService {
         }
         this.categories.push(c);
       }
-      console.log(this.categories);
     })
   }
 
@@ -77,8 +76,7 @@ export class QuizApiServiceService {
     {
       this.Type = "0";
     }
-    this.apiUrl = "https://opentdb.com/api.php?amount=" + this.Amount + "&encode=url3986&token=" + this.apiToken + "&category=" + this.Category + "&difficulty=" + this.Difficulty + "&type=" + this.Type;
-    console.log(this.apiUrl);
+    this.apiUrl = `https://opentdb.com/api.php?token=${this.apiToken}&amount=${this.Amount}&encode=url3986&category=${this.Category}&difficulty=${this.Difficulty}&type=${this.Type}`;
   }
 
   generateApiToken() : void {
@@ -88,7 +86,6 @@ export class QuizApiServiceService {
       .subscribe((data : any) => {
         if (data.response_code == 0) 
           this.apiToken = data.token;
-        console.log(this.apiToken);
         })
     }
   }

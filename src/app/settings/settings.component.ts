@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { QuizApiServiceService } from '../quiz-api-service.service';
 import { Router } from '@angular/router';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-settings',
@@ -24,12 +25,14 @@ export class SettingsComponent implements OnInit {
     this.categories = this.quizService.categories;
   }
 
-  Save() : void {
-      this.quizService.Category=this.Category;
-      this.quizService.Difficulty = this.Difficulty;
-      this.quizService.Type = this.Type;
-      this.quizService.Amount = (<HTMLInputElement>document.getElementById("trivia_amount")).value;
-      this.router.navigateByUrl("/main");
+  Save(form : NgForm) : void {
+      // this.quizService.Category=this.Category;
+      // this.quizService.Difficulty = this.Difficulty;
+      // this.quizService.Type = this.Type;
+      // this.quizService.Amount = (<HTMLInputElement>document.getElementById("trivia_amount")).value;
+      // this.router.navigateByUrl("/main");
+      console.log(form.value);
+
   }
 
   updateSelection() : void {

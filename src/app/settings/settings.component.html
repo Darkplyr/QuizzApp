@@ -1,23 +1,23 @@
-<form>
+<form (ngSubmit)="Save(f)" #f="ngForm">
     <label for="trivia_amount">Number of Questions:</label><br>
-    <input id="trivia_amount" type="number" min="1" max="50" value="10" ><br><br>
+    <input [(ngModel)]=Amount name="Amount" id="trivia_amount" type="number" min="1" max="50" ><br><br>
 
     <label for="trivia_category" >Select Category:</label>
-    <select name="trivia_category" [(ngModel)]="Category">
+    <select name="Category" [(ngModel)]=Category>
         <option *ngFor="let category of categories" [selected]="category.category_id === Category" [ngValue]="category.category_id" class ="btn btn-primary" (click)="updateSelection()" 
     >{{category.category_name}}</option>
     </select><br><br>
     
     <label for="trivia_difficulty" >Select Difficulty:</label><br>
-    <select name="trivia_difficulty" [(ngModel)]="Difficulty"> 
+    <select name="Difficulty" [(ngModel)]=Difficulty> 
         <option *ngFor="let diff of Difficulties" [selected]="diff === Difficulty" [ngValue] = "diff" class="btn btn-primary" (click)="updateSelection()">{{diff}}</option>
     </select><br><br>
 
     <label for="trivia_type" >Select Type:</label><br>
-    <select name="trivia_type" [(ngModel)]="Type">
+    <select name="Type" [(ngModel)]=Type>
         <option *ngFor="let t of Types" [selected]="t === Type" [ngValue]="t" class="btn btn-primary" (click)="updateSelection()">{{t}}</option>
     </select><br><br>
 
-    <button type="submit" (click)="Save()" >Save</button>
+    <button type="submit" >Save</button>
     <input type="reset">
 </form>
