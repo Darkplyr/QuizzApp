@@ -5,16 +5,16 @@
         <h3> {{currentQuestion}}
             <div class="row">
                 <ul *ngFor="let c of choices" class='col-lg-6 col-md-6'>
-                    <button id={{c}} class="btn btn-primary" (click)="checkAnswer(c)"
+                    <button id={{c}} class="btn btn-primary choiceBtn no-transition" (click)="checkAnswer($event, c)"
                 >{{c}}</button><br>
                 </ul>
             </div>
         </h3>
-        <button *ngIf="this.quizService.quizzes.length > this.currentIndex + 1" id="nxtBtn" class="btn btn-primary" (click)="nextQuestion()" disabled >Next</button>
-        <button *ngIf="this.quizService.quizzes.length == this.currentIndex + 1" id="nxtBtn" class="btn btn-primary" (click)="nextQuestion()" disabled >Finish</button>
+        <button *ngIf="!isLastQuestion" id="nextBtn" class="btn btn-primary nxtBtn" (click)="nextQuestion($event)" disabled >Next</button>
+        <button *ngIf="isLastQuestion" id="finishBtn" class="btn btn-primary nxtBtn" (click)="finishQuiz()" disabled>Finish</button>
     </div>
 </div>
 <div *ngIf="EndOfQuiz">
     <app-results
     [currentScore]='currentScore'></app-results>
-</div> 
+</div>

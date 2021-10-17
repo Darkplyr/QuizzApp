@@ -33,8 +33,13 @@ export class QuizApiServiceService {
           choices : data.results[i].incorrect_answers,
           answer : decodeURIComponent(data.results[i].correct_answer),
         }
-        q.choices = this.decodeArray(q.choices);
-        q.choices.splice(Math.floor(Math.random() * 4), 0, q.answer);
+        if(q.choices.length == 1) {
+          q.choices = ["True", "False"]
+        }
+        else{
+          q.choices = this.decodeArray(q.choices);
+          q.choices.splice(Math.floor(Math.random() * 4), 0, q.answer);
+        }
         this.quizzes.push(q);
       }
     })
