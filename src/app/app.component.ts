@@ -10,13 +10,15 @@ import { Title } from '@angular/platform-browser';
 })
 export class AppComponent {
 
-  constructor(public quizService : QuizApiServiceService, private title : Title) {
+  title = "Quiz App";
+
+  constructor(public quizService : QuizApiServiceService, public mainTitle : Title) {
   }
 
   ngOnInit() {
     this.quizService.generateApiToken();
     this.quizService.getCategories();
-    this.title.setTitle("Quiz App");
+    this.mainTitle.setTitle(this.title);
   }
 }
 
