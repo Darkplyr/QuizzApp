@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { QuizApiServiceService } from '../quiz-api-service.service';
@@ -22,5 +23,5 @@ export class MainComponent implements OnInit {
 
   startGame() : void {
     this.router.navigateByUrl('/quiz');
-  }
+  }  
 }

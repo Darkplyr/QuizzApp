@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { QuizComponent } from '../quiz/quiz.component';
 import { QuizApiServiceService } from '../quiz-api-service.service';
 import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-results',
@@ -11,7 +12,11 @@ import { Router } from '@angular/router';
 export class ResultsComponent implements OnInit {
   
   @Input() currentScore : number = 0 ;
-  constructor(public quizService : QuizApiServiceService, private router : Router, private quizC : QuizComponent) {}
+  @Input() userName : string = "";
+  constructor(public quizService : QuizApiServiceService,
+    private router : Router,
+    private quizC : QuizComponent,
+    private http: HttpClient) {}
 
   ngOnInit(): void {
   }
@@ -24,4 +29,18 @@ export class ResultsComponent implements OnInit {
     this.router.navigateByUrl('/main');
   }
 
+  //SaveButton has to connect to the db and upload score
+
+  submitScore = (): void => {
+    this.userName = (<HTMLInputElement>document.getElementById("name")).value;
+    const score: any = {
+      name: this.userName,
+      score: this.currentScore
+    }
+    console.log(score);
+    this.http.post('https://mighty-lowlands-31094.herokuapp.com/scores', score)
+    .subscribe((res: any) => {
+      console.log(score);
+    });
+  }
 }

@@ -50,3 +50,7 @@ h4.scoreHeader {
 	text-align: right;
 	margin-right: 0.5em;
 }
+
+.mainDiv {
+    padding-left: 2em !important;
+}
