@@ -1,0 +1,24 @@
+<div class="container">
+    <form #f="ngForm">
+        <select name="GameMode" [(ngModel)]=GameMode>
+            <option *ngFor="let gamemode of gamemodes" [selected]="gamemode.name === GameMode" [ngValue]="gamemode.name" class="btn btn-primary" (click)="updadeGamemode(f)"
+        >{{gamemode.name}}</option>
+        </select><br><br>
+    </form>
+    <div class="leaderboard">
+        <div class="head">
+			<h1>Top Scores</h1>
+        </div>
+        <div class="body">
+            <ol>
+                <li *ngFor="let s of Scores" >
+                    <mark>{{s.name}}</mark>
+                    <small>{{s.score}}</small>
+                </li>
+            </ol>
+        </div>
+    </div>
+</div>
+
+
+

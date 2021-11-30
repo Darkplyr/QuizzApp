@@ -11,13 +11,13 @@ import { NgForm } from '@angular/forms';
 export class SettingsComponent implements OnInit {
 
   Settings : any = [];
-  categories : any =[];
-  Category = 0;
-  Difficulty = "any";
+  categories : any = [];
+  Category = this.quizService.Category;
+  Difficulty = this.quizService.Difficulty;
   Difficulties = ["any", "easy", "medium", "hard"]
-  Type = "any";
+  Type = this.quizService.Type;
   Types = ["any", "multiple", "boolean"];
-  Amount ="10";
+  Amount = this.quizService.Amount;
  
   constructor(private router : Router, public quizService : QuizApiServiceService) { }
 
@@ -26,16 +26,11 @@ export class SettingsComponent implements OnInit {
   }
 
   Save(form : NgForm) : void {
-      this.quizService.Category=form.value.Category;
+      this.quizService.Category = form.value.Category;
       this.quizService.Difficulty = form.value.Difficulty;
       this.quizService.Type = form.value.Type;
       this.quizService.Amount = form.value.Amount;
-      this.router.navigateByUrl("/main");
-  }
-
-  updateSelection() : void {
-    console.log(this.Category);
-    console.log(this.Difficulty);
-    console.log(this.Type);
+      this.quizService.GameMode = "0";
+      this.router.navigateByUrl('/quiz');
   }
 }

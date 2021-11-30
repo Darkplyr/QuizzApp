@@ -13,6 +13,7 @@ export class ResultsComponent implements OnInit {
   
   @Input() currentScore : number = 0 ;
   @Input() userName : string = "";
+
   constructor(public quizService : QuizApiServiceService,
     private router : Router,
     private quizC : QuizComponent,
@@ -33,14 +34,21 @@ export class ResultsComponent implements OnInit {
 
   submitScore = (): void => {
     this.userName = (<HTMLInputElement>document.getElementById("name")).value;
-    const score: any = {
-      name: this.userName,
-      score: this.currentScore
-    }
-    console.log(score);
-    this.http.post('https://mighty-lowlands-31094.herokuapp.com/scores', score)
-    .subscribe((res: any) => {
+    if (this.userName){
+      const score: any = {
+        name: this.userName,
+        score: this.currentScore,
+        gamemode: this.quizService.GameMode,
+      }
       console.log(score);
-    });
+      this.http.post('https://mighty-lowlands-31094.herokuapp.com/scores', score)
+      .subscribe((res: any) => {
+      });
+      window.alert("ok");
+    } 
+    else {
+      window.alert("empty name");
+    }
+    
   }
 }

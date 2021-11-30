@@ -1,0 +1,59 @@
+/* container */
+.container {
+	width: 700px;
+	height: auto;
+}
+
+/* leaderboard */
+.leaderboard {
+	background: linear-gradient(to bottom, #4f5561, #323641);
+	border-radius: 10px;
+}
+
+/* head */
+.leaderboard .head h1{
+	padding: 20px 16px;
+	color: snow !important;
+	font-size: 30px;
+	text-align: center;
+}
+
+/* body */
+.leaderboard .body {
+	color: snow;
+	font-size: 16px;
+}
+.leaderboard ol {
+	counter-reset: number; 
+    margin: 0px;
+    padding: 0px;
+}
+.leaderboard li {
+	padding: 12px;
+    display: flex;
+	width: auto;
+    margin: 0px;
+}
+.leaderboard li mark {
+	flex-grow: 1;
+	color: snow;
+	background-color: transparent;
+}
+.leaderboard li:before {
+	counter-increment: number; 
+	content: counter(number) "."; 
+	margin-right: 4px;
+}
+.leaderboard li:nth-child(1) {
+	background: #c4ad30;
+}
+.leaderboard li:nth-child(2) {
+	background: #adabab;
+}
+.leaderboard li:nth-child(3) {
+	background: #b16f2e;
+}
+
+.form {
+	margin: 0;
+}

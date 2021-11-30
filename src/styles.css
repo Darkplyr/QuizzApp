@@ -42,15 +42,15 @@
 	border-width: 2px;
 }
 
-section.special, h4.mainDiv {
+ section.special, h4.mainDiv {
 	padding: 2.7em 2.7em 0.7em 2.7em !important;
 }
+
+.mainDiv {
+	padding-left: 2em !important;
+} 
 
 h4.scoreHeader {
 	text-align: right;
 	margin-right: 0.5em;
-}
-
-.mainDiv {
-    padding-left: 2em !important;
 }

@@ -11,12 +11,15 @@ export class QuizApiServiceService {
 
   categories : any = [];
   quizzes : any = [];
+  scores : any = [];
   Category = 0;
   Difficulty = "any";
   Type = "any";
   Amount = "10";
   currentIndex = 0;
   currentScore = 0;
+  GameMode = "GM1";
+  gamemodes : any = [];
 
   constructor(private http: HttpClient) { 
   }
@@ -93,6 +96,41 @@ export class QuizApiServiceService {
           this.apiToken = data.token;
         })
     }
+  }
+
+  getScores() : void {
+    this.scores=[];
+    this.http.get("https://mighty-lowlands-31094.herokuapp.com/scores")
+    .subscribe((data : any) => {
+      for (let i = 0; i < 10; i++) {
+        if (data[i].gamemode == this.GameMode)
+        {
+          console.log(this.GameMode);
+          let s = {
+            name : decodeURIComponent(data[i].name),
+            score : data[i].score,
+          }
+          this.scores.push(s);
+        }
+      }
+    })
+  }
+
+  getGameModes() : void {
+    this.gamemodes = [];
+    this.http.get("https://mighty-lowlands-31094.herokuapp.com/gamemodes")
+    .subscribe((data : any) => {
+      for (let i = 0; i < data.length; i++) {
+        let g = {
+          name : decodeURIComponent(data[i].name),
+          difficulty : decodeURIComponent(data[i].difficulty),
+          nbQuestion: data[i].nbQuestion,
+          type: decodeURIComponent(data[i].type),
+          category : 0,
+        }
+        this.gamemodes.push(g);
+      }
+    })
   }
 }
 

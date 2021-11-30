@@ -1,2 +1,10 @@
-<button class = "btn btn-primary" (click) = "startGame()">Start Game</button><br>
-<button class = "btn btn-primary" (click) = "Settings()">Settings</button>
+<h3>Select Gamemode:</h3>
+<form #f="ngForm">
+    <select name="GameMode" [(ngModel)]=GameMode>
+        <option *ngFor="let gamemode of gamemodes" [selected]="gamemode.name === GameMode" [ngValue]="gamemode.name" class="btn btn-primary" (click)="updadeGamemode(f)"
+    >{{gamemode.name}}</option>
+    </select>
+</form>
+<button class = "btn btn-secondary" (click) = "startGame()">Start Game</button><br>
+<h4>or FreePlay:</h4>
+<button class = "btn btn-secondary" (click) = "Settings()">FreePlay</button>

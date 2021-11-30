@@ -10,6 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { SettingsComponent } from './settings/settings.component';
 import { FormsModule } from '@angular/forms';
 import { TutorialComponent } from './tutorial/tutorial.component';
+import { LeaderboardsComponent } from './leaderboards/leaderboards.component';
 
 const routes: Routes = [
   { path: 'about', component: AboutComponent },
@@ -17,6 +18,7 @@ const routes: Routes = [
   { path: 'quiz', component: QuizComponent },
   { path: 'settings', component: SettingsComponent },
   { path: 'tutorial', component: TutorialComponent },
+  { path: 'leaderboards', component: LeaderboardsComponent },
   { path: '', redirectTo: '/about', pathMatch: 'full' },
 ]
 
@@ -27,7 +29,8 @@ const routes: Routes = [
     QuizComponent,
     ResultsComponent,
     SettingsComponent,
-    TutorialComponent
+    TutorialComponent,
+    LeaderboardsComponent
   ],
   imports: [
     BrowserModule,
