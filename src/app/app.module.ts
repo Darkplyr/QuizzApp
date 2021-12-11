@@ -11,6 +11,8 @@ import { SettingsComponent } from './settings/settings.component';
 import { FormsModule } from '@angular/forms';
 import { TutorialComponent } from './tutorial/tutorial.component';
 import { LeaderboardsComponent } from './leaderboards/leaderboards.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {  ToastrModule } from 'ngx-toastr';
 
 const routes: Routes = [
   { path: 'about', component: AboutComponent },
@@ -37,6 +39,10 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
     HttpClientModule,
     FormsModule,
+    BrowserAnimationsModule, // required animations module
+    ToastrModule.forRoot({
+      preventDuplicates : true,
+    }),
   ],
   providers: [Title],
   bootstrap: [AppComponent]
