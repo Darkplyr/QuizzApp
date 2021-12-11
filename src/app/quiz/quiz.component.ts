@@ -76,7 +76,7 @@ export class QuizComponent implements OnInit, DoCheck {
 
     this.enableChoiceButtons();
 
-    // if i finish question 9 and press next, the EndOfQuiz will become true and show "Finish" on question 10 instead of "Next"
+    // if i finish before last question and press next, the EndOfQuiz will become true and show "Finish" on last question instead of "Next"
     if (this.currentIndex === this.quizService.quizzes.length - 1)
       this.isLastQuestion = true;
   }

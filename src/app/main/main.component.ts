@@ -27,6 +27,17 @@ export class MainComponent implements OnInit {
   }
 
   startGame() : void {
+    for(let i=0; i < this.gamemodes.length; i++)
+    {
+      if(this.quizService.GameMode == this.gamemodes[i].name)
+      {
+        this.quizService.Category = this.gamemodes[i].category;
+        this.quizService.Type = this.gamemodes[i].type;
+        this.quizService.Difficulty = this.gamemodes[i].difficulty;
+        this.quizService.Amount = this.gamemodes[i].nbQuestion;
+        break;
+      }
+    }
     this.router.navigateByUrl('/quiz');
   }  
 
@@ -36,10 +47,6 @@ export class MainComponent implements OnInit {
       if(form.value.GameMode == this.gamemodes[i].name)
       {
         this.quizService.GameMode = this.gamemodes[i].name;
-        this.quizService.Category = this.gamemodes[i].category;
-        this.quizService.Type = this.gamemodes[i].type;
-        this.quizService.Difficulty = this.gamemodes[i].difficulty;
-        this.quizService.Amount = this.gamemodes[i].nbQuestion;
         break;
       }
     }
