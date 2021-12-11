@@ -1,10 +1,8 @@
-<h3>Select Gamemode:</h3>
-<form #f="ngForm">
-    <select name="GameMode" [(ngModel)]=GameMode>
-        <option *ngFor="let gamemode of gamemodes" [selected]="gamemode.name === GameMode" [ngValue]="gamemode.name" class="btn btn-primary" (click)="updadeGamemode(f)"
-    >{{gamemode.name}}</option>
-    </select>
+<h3>Select Theme:</h3>
+<form (ngSubmit)="startGame(f)" #f="ngForm">
+    <select name="Category" [(ngModel)]=Category>
+        <option *ngFor="let category of categories" [selected]="category.category_id === Category" [ngValue]="category.category_id" class ="btn btn-primary" 
+    >{{category.category_name}}</option>
+    </select><br><br>
+    <button type="submit" class="btn btn-secondary">Start Game</button>
 </form>
-<button class = "btn btn-secondary" (click) = "startGame()">Start Game</button><br>
-<h4>or FreePlay:</h4>
-<button class = "btn btn-secondary" (click) = "Settings()">FreePlay</button>

@@ -1,10 +1,8 @@
 <div>
     <h4 class="scoreHeader">Your Score: {{currentScore}}</h4>
-    <div *ngIf= "this.quizService.GameMode != '0'">
-        <input type="text" id="name" required placeholder="Enter your name">
-        <button id="Submit" class="btn btn-secondary" (click)="submitScore()" >Submit Score</button>
-     <div toastContainer class="ngx-toastr"></div>
-    </div>
+    <input type="text" id="name" required placeholder="Enter your name">
+    <button id="Submit" class="btn btn-secondary" (click)="submitScore()" >Submit Score</button>
+    <div toastContainer class="ngx-toastr"></div>
     <br><br><br>
     <button class = "btn btn-secondary" (click) = "restartGame()">Try Again</button><br>
     <button class = "btn btn-secondary" (click) = "mainMenu()">Back to Menu</button>

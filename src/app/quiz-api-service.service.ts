@@ -13,13 +13,9 @@ export class QuizApiServiceService {
   quizzes : any = [];
   scores : any = [];
   Category = 0;
-  Difficulty = "any";
-  Type = "any";
-  Amount = "10";
   currentIndex = 0;
   currentScore = 0;
-  GameMode = "GM1";
-  gamemodes : any = [];
+  
 
   constructor(private http: HttpClient) { 
   }
@@ -76,15 +72,7 @@ export class QuizApiServiceService {
 
   generateApiUrl() : void {
     this.generateApiToken();
-    if(this.Difficulty === "any")
-    {
-      this.Difficulty = "0";
-    }
-    if(this.Type === "any")
-    {
-      this.Type = "0";
-    }
-    this.apiUrl = `https://opentdb.com/api.php?token=${this.apiToken}&amount=${this.Amount}&encode=url3986&category=${this.Category}&difficulty=${this.Difficulty}&type=${this.Type}`;
+    this.apiUrl = `https://opentdb.com/api.php?token=${this.apiToken}&amount=20&encode=url3986&category=${this.Category}&difficulty=0&type=0`;
   }
 
   generateApiToken() : void {
@@ -103,32 +91,15 @@ export class QuizApiServiceService {
     this.http.get("https://mighty-lowlands-31094.herokuapp.com/scores")
     .subscribe((data : any) => {
       for (let i = 0; i < 10; i++) {
-        if (data[i].gamemode == this.GameMode)
+        if (data[i].category_id == this.Category)
         {
-          console.log(this.GameMode);
+          console.log(this.Category);
           let s = {
             name : decodeURIComponent(data[i].name),
             score : data[i].score,
           }
           this.scores.push(s);
         }
-      }
-    })
-  }
-
-  getGameModes() : void {
-    this.gamemodes = [];
-    this.http.get("https://mighty-lowlands-31094.herokuapp.com/gamemodes")
-    .subscribe((data : any) => {
-      for (let i = 0; i < data.length; i++) {
-        let g = {
-          name : decodeURIComponent(data[i].name),
-          difficulty : decodeURIComponent(data[i].difficulty),
-          nbQuestion: data[i].nbQuestion,
-          type: decodeURIComponent(data[i].type),
-          category : 0,
-        }
-        this.gamemodes.push(g);
       }
     })
   }

@@ -11,22 +11,22 @@ export class LeaderboardsComponent implements OnInit , DoCheck {
 
   Scores : any = [];
 
-  gamemodes : any =[];
-  GameMode = this.quizService.GameMode
+  categories : any =[];
+  Category = this.quizService.Category
 
   constructor(public quizService: QuizApiServiceService) { }
 
   ngOnInit(): void {
     this.quizService.getScores();
-    this.gamemodes = this.quizService.gamemodes;
+    this.categories = this.quizService.categories;
   }
 
   ngDoCheck(): void {
     this.Scores = this.quizService.scores;
   }
 
-  updadeGamemode(form:NgForm) : void {
-    this.quizService.GameMode = form.value.GameMode;
+  updadeLeaderboard(form:NgForm) : void {
+    this.quizService.Category = form.value.Category;
     this.quizService.getScores();
   }
 

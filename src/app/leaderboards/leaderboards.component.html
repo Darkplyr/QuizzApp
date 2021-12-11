@@ -1,8 +1,8 @@
 <div class="container">
     <form #f="ngForm">
-        <select name="GameMode" [(ngModel)]=GameMode>
-            <option *ngFor="let gamemode of gamemodes" [selected]="gamemode.name === GameMode" [ngValue]="gamemode.name" class="btn btn-primary" (click)="updadeGamemode(f)"
-        >{{gamemode.name}}</option>
+        <select name="Category" [(ngModel)]=Category>
+            <option *ngFor="let category of categories" [selected]="category.category_id === Category" [ngValue]="category.category_id" class="btn btn-primary" (click)="updadeLeaderboard(f)"
+        >{{category.category_name}}</option>
         </select><br><br>
     </form>
     <div class="leaderboard">
@@ -19,6 +19,3 @@
         </div>
     </div>
 </div>
-
-
-

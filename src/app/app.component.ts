@@ -17,7 +17,6 @@ export class AppComponent {
 
   ngOnInit() {
     this.quizService.getCategories();
-    this.quizService.getGameModes();
     this.quizService.generateApiToken();
     this.mainTitle.setTitle(this.title);
   }

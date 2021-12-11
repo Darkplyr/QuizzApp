@@ -3,7 +3,7 @@ import { QuizComponent } from '../quiz/quiz.component';
 import { QuizApiServiceService } from '../quiz-api-service.service';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
-import {  ToastrService } from 'ngx-toastr';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-results',
@@ -36,7 +36,7 @@ export class ResultsComponent implements OnInit {
       /*const score: any = {
         name: this.userName,
         score: this.currentScore,
-        gamemode: this.quizService.GameMode,
+        category_id: this.quizService.Category,
       }
       this.http.post('https://mighty-lowlands-31094.herokuapp.com/scores', score)
       .subscribe((res: any) => {
