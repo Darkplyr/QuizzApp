@@ -4,10 +4,10 @@
 	-ms-transition: none !important;
 	-o-transition: none !important;
 	transition: none !important;
-  }
+}
 
 .btn-primary:hover {
-    background-color: #e2d1d1 !important;
+	background-color: #e2d1d1 !important;
 }
 
 .btn-primary, .btn-primary:hover {
@@ -22,7 +22,7 @@
 	word-wrap: break-word !important;
 }
 
-.btn-next, .btn-next:hover span{
+.btn-next, .btn-next:hover span {
 	border-radius: 10px !important;
     border-color: #000000 !important;
 	border-width: 2px !important;
@@ -32,7 +32,6 @@
 	font-weight: bold !important;
 	white-space: normal !important;
 	word-wrap: break-word !important;
-
 }
 
 .btn-progBar {
@@ -42,7 +41,7 @@
 	border-width: 2px;
 }
 
- section.special, h4.mainDiv {
+section.special, h4.mainDiv {
 	padding: 2.7em 2.7em 0.7em 2.7em !important;
 }
 

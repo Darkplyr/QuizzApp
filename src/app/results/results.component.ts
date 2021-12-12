@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { QuizComponent } from '../quiz/quiz.component';
 import { QuizApiServiceService } from '../quiz-api-service.service';
 import { Router } from '@angular/router';
@@ -10,6 +10,7 @@ import { ToastrService } from 'ngx-toastr';
   templateUrl: './results.component.html',
   styleUrls: ['./results.component.css']
 })
+
 export class ResultsComponent implements OnInit {
   
   @Input() currentScore : number = 0 ;
@@ -29,7 +30,6 @@ export class ResultsComponent implements OnInit {
   }
 
   //SaveButton has to connect to the db and upload score
-
   submitScore = (): void => {
     this.userName = (<HTMLInputElement>document.getElementById("name")).value;
     if (this.userName){

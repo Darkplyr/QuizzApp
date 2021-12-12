@@ -11,7 +11,7 @@ export class LeaderboardsComponent implements OnInit , DoCheck {
 
   Scores : any = [];
 
-  categories : any =[];
+  categories : any = [];
   Category = this.quizService.Category
 
   constructor(public quizService: QuizApiServiceService) { }
@@ -29,5 +29,4 @@ export class LeaderboardsComponent implements OnInit , DoCheck {
     this.quizService.Category = form.value.Category;
     this.quizService.getScores();
   }
-
 }

@@ -1,8 +1,8 @@
-.scoreHeader{
+.scoreHeader {
     text-align: center !important;
 }
 
-input[type=text]{
+input[type=text] {
 	appearance: none;
 	border-radius: 8px;
 	border: solid 1px;

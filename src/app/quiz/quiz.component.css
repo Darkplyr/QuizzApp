@@ -1,4 +1,4 @@
-.correct_answer{
+.correct_answer {
     background-color: lime !important;
     border-radius: 10px !important;
     border-color: #000000 !important;
@@ -9,10 +9,9 @@
 	font-weight: bold !important;
 	white-space: normal !important;
 	word-wrap: break-word !important;
-    
 }
 
-.incorrect_answer{
+.incorrect_answer {
     background-color: red !important;
     border-radius: 10px !important;
     border-color: #000000 !important;
