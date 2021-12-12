@@ -108,6 +108,9 @@ export class QuizApiServiceService {
             this.scores.push(s);
             scorecounter++;
           }
+          else {
+            break;
+          }
         }
       }
     })
