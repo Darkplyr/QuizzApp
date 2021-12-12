@@ -31,6 +31,9 @@ export class QuizApiServiceService {
           question : decodeURIComponent(data.results[i].question),
           choices : data.results[i].incorrect_answers,
           answer : decodeURIComponent(data.results[i].correct_answer),
+          difficulty : decodeURIComponent(data.results[i].difficulty),
+          type : decodeURIComponent(data.results[i].type),
+          question_category: decodeURIComponent(data.results[i].category)
         }
         if(q.choices.length == 1) {
           q.choices = ["True", "False"]
@@ -93,7 +96,6 @@ export class QuizApiServiceService {
       for (let i = 0; i < 10; i++) {
         if (data[i].category_id == this.Category)
         {
-          console.log(this.Category);
           let s = {
             name : decodeURIComponent(data[i].name),
             score : data[i].score,

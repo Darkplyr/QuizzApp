@@ -14,6 +14,8 @@ export class QuizComponent implements OnInit, DoCheck {
   currentScore = 0;
   isLastQuestion = false;
   EndOfQuiz = false;
+  category = "";
+  difficulty = "";
 
   constructor(public quizService: QuizApiServiceService) {}
 
@@ -27,6 +29,8 @@ export class QuizComponent implements OnInit, DoCheck {
       this.currentQuestion =
         this.quizService.quizzes[this.currentIndex].question;
       this.correctAnswer = this.quizService.quizzes[this.currentIndex].answer;
+      this.category = this.quizService.quizzes[this.currentIndex].question_category;
+      this.difficulty = this.quizService.quizzes[this.currentIndex].difficulty;
     }
   }
 
