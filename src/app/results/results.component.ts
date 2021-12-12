@@ -33,14 +33,14 @@ export class ResultsComponent implements OnInit {
   submitScore = (): void => {
     this.userName = (<HTMLInputElement>document.getElementById("name")).value;
     if (this.userName){
-      /*const score: any = {
+      const score: any = {
         name: this.userName,
         score: this.currentScore,
         category_id: this.quizService.Category,
       }
       this.http.post('https://mighty-lowlands-31094.herokuapp.com/scores', score)
       .subscribe((res: any) => {
-      });*/
+      });
       this.toastr.clear();
       this.toastr.success('Submission successful', 'Successful');
       document.getElementById('Submit')?.setAttribute("disabled", "true");
