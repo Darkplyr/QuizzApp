@@ -12,6 +12,7 @@
                 </ul>
             </div>
         </h3>
+        <label *ngIf=isWrong>The correct answer was: {{correctAnswer}}</label><br>
         <button *ngIf="!isLastQuestion" id="nextBtn" class="btn btn-primary nxtBtn" (click)="nextQuestion($event)" disabled >Next</button>
         <button *ngIf="isLastQuestion" id="finishBtn" class="btn btn-primary nxtBtn" (click)="finishQuiz()" disabled>Finish</button>
     </div>

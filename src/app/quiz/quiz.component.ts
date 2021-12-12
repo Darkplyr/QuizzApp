@@ -16,6 +16,8 @@ export class QuizComponent implements OnInit, DoCheck {
   EndOfQuiz = false;
   category = "";
   difficulty = "";
+  type = "";
+  isWrong = false;
 
   constructor(public quizService: QuizApiServiceService) {}
 
@@ -31,6 +33,7 @@ export class QuizComponent implements OnInit, DoCheck {
       this.correctAnswer = this.quizService.quizzes[this.currentIndex].answer;
       this.category = this.quizService.quizzes[this.currentIndex].question_category;
       this.difficulty = this.quizService.quizzes[this.currentIndex].difficulty;
+      this.type = this.quizService.quizzes[this.currentIndex].type;
     }
   }
 
@@ -43,15 +46,18 @@ export class QuizComponent implements OnInit, DoCheck {
 
   checkAnswer(ev: any, choice: string): void {
 
+    var score = this.questionPoint();
+
     // Check if the choice is correct and color the btn accordingly
     if (choice === this.correctAnswer) {
       ev.target.classList.remove('incorrect_answer');
       ev.target.classList.add('correct_answer');
-      
-      this.currentScore++;
+      this.currentScore += score;  
     } else {
       ev.target.classList.remove('correct_answer');
       ev.target.classList.add('incorrect_answer');
+      this.isWrong = true;
+      this.currentScore -= score;
     }
 
     this.disableChoiceButtons();
@@ -67,6 +73,8 @@ export class QuizComponent implements OnInit, DoCheck {
   }
 
   nextQuestion(ev: any): void {
+
+    this.isWrong = false;
 
     // Remove the correct/incorrect_answer class from all choices for the next question
     document.querySelectorAll('.choiceBtn').forEach((btn) => {
@@ -89,6 +97,7 @@ export class QuizComponent implements OnInit, DoCheck {
     this.currentIndex = 0;
     this.isLastQuestion = false;
     this.EndOfQuiz = true;
+    this.isWrong = false;
   };
   
   enableChoiceButtons = (): void => {
@@ -102,4 +111,27 @@ export class QuizComponent implements OnInit, DoCheck {
       btn.setAttribute('disabled', 'true');
     });
   };
+
+  questionPoint(): number {
+    var score;
+
+    if (this.difficulty == "easy") {
+      score = 1
+    } 
+    else if (this.difficulty == "medium") {
+      score = 2;
+    }
+    else {
+      score = 3;
+    }
+
+    if (this.type == "boolean") {
+      score *= 2
+    }
+    else {
+      score *=4
+    }
+    
+    return score;
+  }
 }

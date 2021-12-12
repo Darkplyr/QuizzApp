@@ -9,3 +9,7 @@ td {
 table {
     margin: 0 0 2em 1em !important;
 }
+
+b, u, h2 {
+    text-underline-position: under;
+}
