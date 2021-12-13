@@ -11,7 +11,7 @@ import { Title } from '@angular/platform-browser';
 
 export class AppComponent {
 
-  title = "Quiz App";
+  title = "QuizzApp";
 
   constructor(public quizService : QuizApiServiceService, public mainTitle : Title) {
   }
