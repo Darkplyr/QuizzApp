@@ -1,7 +1,7 @@
 <div class="container">
     <form #f="ngForm">
-        <select name="Category" [(ngModel)]=Category>
-            <option *ngFor="let category of categories" [selected]="category.category_id === Category" [ngValue]="category.category_id" class="btn btn-primary" (click)="updadeLeaderboard(f)"
+        <select (check) name="Category" [(ngModel)]=Category>
+            <option *ngFor="let category of categories" [selected]="category.category_id === Category" [ngValue]="category.category_id" class="btn btn-primary"
         >{{category.category_name}}</option>
         </select><br><br>
     </form>

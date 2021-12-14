@@ -11,7 +11,7 @@ import { NgForm } from '@angular/forms';
 
 export class MainComponent implements OnInit {
 
-  categories : any =[];
+  categories : any = [];
   Category = this.quizService.Category
 
   constructor(private router : Router, private quizService : QuizApiServiceService) { 
@@ -23,7 +23,6 @@ export class MainComponent implements OnInit {
 
   startGame(form : NgForm) : void {
     this.quizService.Category = form.value.Category ;
-    console.log(form.value.Category);
     this.router.navigateByUrl('/quiz');
   }  
 }
