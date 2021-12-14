@@ -10,7 +10,6 @@ import { NgForm } from '@angular/forms';
 export class LeaderboardsComponent implements OnInit , DoCheck {
 
   Scores : any = [];
-
   categories : any = [];
   Category = this.quizService.Category
 

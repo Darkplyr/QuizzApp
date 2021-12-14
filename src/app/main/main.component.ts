@@ -22,8 +22,7 @@ export class MainComponent implements OnInit {
   }
 
   startGame(form : NgForm) : void {
-    this.quizService.Category = form.value.Category ;
-    console.log(form.value.Category);
+    this.quizService.Category = form.value.Category;
     this.router.navigateByUrl('/quiz');
   }  
 }
