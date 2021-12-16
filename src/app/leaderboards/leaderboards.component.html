@@ -11,6 +11,9 @@
         </div>
         <div class="body">
             <ol>
+                <li class="empty" *ngIf="Scores.length === 0">
+                    <mark>No scores available for this Category</mark>
+                </li>
                 <li *ngFor="let s of Scores" >
                     <mark>{{s.name}}</mark>
                     <small>{{s.score}}</small>

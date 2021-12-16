@@ -53,3 +53,7 @@
 .leaderboard li:nth-child(3) {
 	background: #b16f2e;
 }
+
+.empty  {
+	background: linear-gradient(to bottom, #4f5561, #323641) !important;
+}
